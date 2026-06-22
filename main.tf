@@ -1,5 +1,6 @@
 locals {
   project_name = "terraform-lab"
+
   common_tags = {
     Environment = var.environment
     Project     = local.project_name
