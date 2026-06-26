@@ -1,0 +1,217 @@
+{
+  "version": 4,
+  "terraform_version": "1.15.6",
+  "serial": 19,
+  "lineage": "1101a501-23fa-2314-5d31-360eb1e6f86c",
+  "outputs": {
+    "resource_group_name": {
+      "value": "rg-terraform-lab-dev",
+      "type": "string"
+    },
+    "subnet_database_id": {
+      "value": "/subscriptions/a8602307-fe44-482d-9e38-26c273e1cb1a/resourceGroups/rg-terraform-lab-dev/providers/Microsoft.Network/virtualNetworks/vnet-terraform-lab-dev/subnets/snet-database",
+      "type": "string"
+    },
+    "subnet_id": {
+      "value": "/subscriptions/a8602307-fe44-482d-9e38-26c273e1cb1a/resourceGroups/rg-terraform-lab-dev/providers/Microsoft.Network/virtualNetworks/vnet-terraform-lab-dev/subnets/snet-application",
+      "type": "string"
+    },
+    "virtual_network_name": {
+      "value": "vnet-terraform-lab-dev",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "azurerm_resource_group",
+      "name": "lab",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "/subscriptions/a8602307-fe44-482d-9e38-26c273e1cb1a/resourceGroups/rg-terraform-lab-dev",
+            "location": "eastus",
+            "managed_by": "",
+            "name": "rg-terraform-lab-dev",
+            "tags": {
+              "Environment": "dev",
+              "ManagedBy": "Terraform",
+              "Project": "terraform-lab"
+            },
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "name": "rg-terraform-lab-dev",
+            "subscription_id": "a8602307-fe44-482d-9e38-26c273e1cb1a"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo1NDAwMDAwMDAwMDAwLCJkZWxldGUiOjU0MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjo1NDAwMDAwMDAwMDAwfX0="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_subnet",
+      "name": "application",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "address_prefixes": [
+              "10.10.1.0/24"
+            ],
+            "default_outbound_access_enabled": true,
+            "delegation": [],
+            "id": "/subscriptions/a8602307-fe44-482d-9e38-26c273e1cb1a/resourceGroups/rg-terraform-lab-dev/providers/Microsoft.Network/virtualNetworks/vnet-terraform-lab-dev/subnets/snet-application",
+            "ip_address_pool": [],
+            "name": "snet-application",
+            "private_endpoint_network_policies": "Disabled",
+            "private_link_service_network_policies_enabled": true,
+            "resource_group_name": "rg-terraform-lab-dev",
+            "service_endpoint_policy_ids": [],
+            "service_endpoints": [],
+            "sharing_scope": "",
+            "timeouts": null,
+            "virtual_network_name": "vnet-terraform-lab-dev"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "name": "snet-application",
+            "resource_group_name": "rg-terraform-lab-dev",
+            "subscription_id": "a8602307-fe44-482d-9e38-26c273e1cb1a",
+            "virtual_network_name": "vnet-terraform-lab-dev"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "azurerm_resource_group.lab",
+            "azurerm_virtual_network.lab"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_subnet",
+      "name": "database",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "address_prefixes": [
+              "10.10.2.0/24"
+            ],
+            "default_outbound_access_enabled": true,
+            "delegation": [],
+            "id": "/subscriptions/a8602307-fe44-482d-9e38-26c273e1cb1a/resourceGroups/rg-terraform-lab-dev/providers/Microsoft.Network/virtualNetworks/vnet-terraform-lab-dev/subnets/snet-database",
+            "ip_address_pool": [],
+            "name": "snet-database",
+            "private_endpoint_network_policies": "Disabled",
+            "private_link_service_network_policies_enabled": true,
+            "resource_group_name": "rg-terraform-lab-dev",
+            "service_endpoint_policy_ids": null,
+            "service_endpoints": null,
+            "sharing_scope": "",
+            "timeouts": null,
+            "virtual_network_name": "vnet-terraform-lab-dev"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "name": "snet-database",
+            "resource_group_name": "rg-terraform-lab-dev",
+            "subscription_id": "a8602307-fe44-482d-9e38-26c273e1cb1a",
+            "virtual_network_name": "vnet-terraform-lab-dev"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "azurerm_resource_group.lab",
+            "azurerm_virtual_network.lab"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_virtual_network",
+      "name": "lab",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "address_space": [
+              "10.10.0.0/16"
+            ],
+            "bgp_community": "",
+            "ddos_protection_plan": [],
+            "dns_servers": [],
+            "edge_zone": "",
+            "encryption": [],
+            "flow_timeout_in_minutes": 0,
+            "guid": "342e6f88-58d4-4812-9127-fa9372b2dda0",
+            "id": "/subscriptions/a8602307-fe44-482d-9e38-26c273e1cb1a/resourceGroups/rg-terraform-lab-dev/providers/Microsoft.Network/virtualNetworks/vnet-terraform-lab-dev",
+            "ip_address_pool": [],
+            "location": "eastus",
+            "name": "vnet-terraform-lab-dev",
+            "private_endpoint_vnet_policies": "Disabled",
+            "resource_group_name": "rg-terraform-lab-dev",
+            "subnet": [
+              {
+                "address_prefixes": [
+                  "10.10.1.0/24"
+                ],
+                "default_outbound_access_enabled": true,
+                "delegation": [],
+                "id": "/subscriptions/a8602307-fe44-482d-9e38-26c273e1cb1a/resourceGroups/rg-terraform-lab-dev/providers/Microsoft.Network/virtualNetworks/vnet-terraform-lab-dev/subnets/snet-application",
+                "name": "snet-application",
+                "private_endpoint_network_policies": "Disabled",
+                "private_link_service_network_policies_enabled": true,
+                "route_table_id": "",
+                "security_group": "",
+                "service_endpoint_policy_ids": [],
+                "service_endpoints": []
+              }
+            ],
+            "tags": {
+              "Environment": "dev",
+              "ManagedBy": "Terraform",
+              "Project": "terraform-lab"
+            },
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "name": "vnet-terraform-lab-dev",
+            "resource_group_name": "rg-terraform-lab-dev",
+            "subscription_id": "a8602307-fe44-482d-9e38-26c273e1cb1a"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "azurerm_resource_group.lab"
+          ]
+        }
+      ]
+    }
+  ],
+  "check_results": [
+    {
+      "object_kind": "var",
+      "config_addr": "var.environment",
+      "status": "pass",
+      "objects": [
+        {
+          "object_addr": "var.environment",
+          "status": "pass"
+        }
+      ]
+    }
+  ]
+}
+

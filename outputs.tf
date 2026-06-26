@@ -12,3 +12,8 @@ output "subnet_id" {
   description = "Created Azure subnet resource ID"
   value       = azurerm_subnet.application.id
 }
+
+output "subnet_database_id" {
+  description = "Created Azure database subnet resource ID"
+  value       = azurerm_subnet.database.id
+}
