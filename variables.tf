@@ -23,3 +23,7 @@ variable "environment" {
     error_message = "Environment must be dev, test, stage, or prod."
   }
 }
+variable "tenant_id" {
+  description = "Microsoft Entra tenant ID"
+  type        = string
+}
