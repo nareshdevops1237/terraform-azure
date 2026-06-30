@@ -6,7 +6,7 @@ variable "subscription_id" {
 variable "location" {
   description = "Azure region where resources will be created"
   type        = string
-  default     = "East US"
+  default     = "southindia"
 }
 
 variable "environment" {
@@ -26,4 +26,13 @@ variable "environment" {
 variable "tenant_id" {
   description = "Microsoft Entra tenant ID"
   type        = string
+}
+
+variable "admin_username" {
+  default = "azureadmin"
+}
+
+variable "ssh_public_key" {
+  description = "Path to your SSH public key"
+  default     = "~/.ssh/id_rsa.pub"
 }
