@@ -10,7 +10,7 @@ locals {
 
 resource "azurerm_resource_group" "lab" {
   name     = "rg-${local.project_name}-${var.environment}"
-  location = var.location
+  location = "East US 2"
 
   tags = local.common_tags
 }
@@ -45,6 +45,8 @@ resource "azurerm_network_interface" "app_nic" {
   location            = azurerm_resource_group.lab.location
   resource_group_name = azurerm_resource_group.lab.name
 
+  depends_on = [azurerm_subnet.application]    # add this
+
   ip_configuration {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.application.id
@@ -56,6 +58,8 @@ resource "azurerm_network_interface" "db_nic" {
   name                = "nic-vm-db"
   location            = azurerm_resource_group.lab.location
   resource_group_name = azurerm_resource_group.lab.name
+
+  depends_on = [azurerm_subnet.database]    # add this
 
   ip_configuration {
     name                          = "internal"
@@ -69,7 +73,7 @@ resource "azurerm_linux_virtual_machine" "app_vm" {
   name                = "vm-app01"
   resource_group_name = azurerm_resource_group.lab.name
   location            = azurerm_resource_group.lab.location
-  size                = "Standard_B2als_v2"
+  size                = "Standard_D2s_v7"
   admin_username      = var.admin_username
 
   network_interface_ids = [
@@ -86,12 +90,12 @@ resource "azurerm_linux_virtual_machine" "app_vm" {
     storage_account_type = "Standard_LRS"
   }
 
-  source_image_reference {
-    publisher = "RedHat"
-    offer     = "RHEL"
-    sku       = "9-lvm"
-    version   = "latest"
-  }
+source_image_reference {
+  publisher = "Canonical"
+  offer     = "0001-com-ubuntu-server-jammy"
+  sku       = "22_04-lts-gen2"
+  version   = "latest"
+}
 
 
 }
@@ -101,7 +105,7 @@ resource "azurerm_linux_virtual_machine" "db_vm" {
   name                = "vm-db01"
   resource_group_name = azurerm_resource_group.lab.name
   location            = azurerm_resource_group.lab.location
-  size                = "Standard_B2als_v2"
+  size                = "Standard_D2s_v7"
   admin_username      = var.admin_username
 
   network_interface_ids = [
@@ -118,12 +122,12 @@ resource "azurerm_linux_virtual_machine" "db_vm" {
     storage_account_type = "Standard_LRS"
   }
 
-  source_image_reference {
-    publisher = "RedHat"
-    offer     = "RHEL"
-    sku       = "9-lvm"
-    version   = "latest"
-  }
+source_image_reference {
+  publisher = "Canonical"
+  offer     = "0001-com-ubuntu-server-jammy"
+  sku       = "22_04-lts-gen2"
+  version   = "latest"
+}
 
 
 }
