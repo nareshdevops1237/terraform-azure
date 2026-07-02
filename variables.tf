@@ -36,3 +36,13 @@ variable "ssh_public_key" {
   description = "Path to your SSH public key"
   default     = "~/.ssh/id_rsa.pub"
 }
+
+variable "ARM_CLIENT_ID" {
+  description = "Azure AD application (client) ID"
+  type        = string
+}
+
+variable "ARM_CLIENT_SECRET" {
+  description = "Azure AD application (client) secret"
+  type        = string
+}
