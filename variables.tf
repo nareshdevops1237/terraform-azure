@@ -37,12 +37,14 @@ variable "ssh_public_key" {
   default     = "~/.ssh/id_rsa.pub"
 }
 
-variable "ARM_CLIENT_ID" {
-  description = "Azure AD application (client) ID"
+variable "client_id" {
+  description = "Azure Client ID"
   type        = string
+  sensitive   = true      # hides in logs
 }
 
-variable "ARM_CLIENT_SECRET" {
-  description = "Azure AD application (client) secret"
+variable "client_secret" {
+  description = "Azure Client Secret"
   type        = string
+  sensitive   = true      # hides in logs
 }
